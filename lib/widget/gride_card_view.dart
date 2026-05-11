@@ -4,7 +4,7 @@ import 'package:pro1_un/widget/card_home_screen.dart';
 
 class GrideCardView extends StatelessWidget {
   GrideCardView({super.key});
-  List<CardModel> cardsModel = [
+  final List<CardModel> cardsModel = [
     CardModel(
       image: 'assets/لوك نهاري سيج_أوليف بسيط.jpg',
       price: '2900',

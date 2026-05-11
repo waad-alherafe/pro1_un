@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pro1_un/model/card_model.dart';
 
 class CardHomeScreen extends StatelessWidget {
-  CardHomeScreen({super.key, required this.cardModel});
+  const CardHomeScreen({super.key, required this.cardModel});
 
   final CardModel cardModel;
   @override
@@ -13,8 +13,8 @@ class CardHomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(
-                0.1,
+              color: Colors.black.withValues(
+                alpha: 0.1,
               ), // لون الظل (يفضل شفافية منخفضة)
               spreadRadius: 1, // مدى انتشار الظل من حواف الكارد
               blurRadius: 8, // درجة "تغبيش" أو نعومة الظل

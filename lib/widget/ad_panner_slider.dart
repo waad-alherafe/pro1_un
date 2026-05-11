@@ -22,12 +22,10 @@ class AdPannerSlider extends StatelessWidget {
       ),
       items: imageList
           .map(
-            (x) => Container(
-              child: Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(x, fit: BoxFit.cover, width: 1000),
-                ),
+            (x) => Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(x, fit: BoxFit.cover, width: 1000),
               ),
             ),
           )

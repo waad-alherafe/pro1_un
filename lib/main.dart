@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pro1_un/page/onboarding_view.dart';
-import 'package:pro1_un/widget/card_home_screen.dart';
-import 'package:pro1_un/page/ecom_view.dart';
 
 void main() {
   runApp(const MyApp());

@@ -74,6 +74,12 @@ class _OnboardingViewState extends State<OnboardingView> {
   }
 
   @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final bool isLastPage = currentPage == pages.length - 1;
 
@@ -133,43 +139,54 @@ class _OnboardingViewState extends State<OnboardingView> {
                   itemBuilder: (context, index) {
                     final item = pages[index];
 
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 190,
-                          height: 190,
-                          decoration: BoxDecoration(
-                            color: item.backgroundColor,
-                            borderRadius: BorderRadius.circular(35),
-                          ),
-                          child: Icon(
-                            item.icon,
-                            size: 88,
-                            color: item.iconColor,
-                          ),
-                        ),
-                        const SizedBox(height: 40),
-                        Text(
-                          item.title,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 14),
-                        Text(
-                          item.description,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Color(0xFF807F7F),
-                            fontSize: 16,
-                            height: 1.5,
-                          ),
-                        ),
-                      ],
+                    return LayoutBuilder(
+                      builder: (context, constraints) {
+                        final bool compact = constraints.maxHeight < 360;
+                        final double imageSize = compact ? 150 : 190;
+                        final double imageRadius = compact ? 28 : 35;
+                        final double iconSize = compact ? 70 : 88;
+
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: imageSize,
+                              height: imageSize,
+                              decoration: BoxDecoration(
+                                color: item.backgroundColor,
+                                borderRadius: BorderRadius.circular(
+                                  imageRadius,
+                                ),
+                              ),
+                              child: Icon(
+                                item.icon,
+                                size: iconSize,
+                                color: item.iconColor,
+                              ),
+                            ),
+                            SizedBox(height: compact ? 22 : 40),
+                            Text(
+                              item.title,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: compact ? 24 : 28,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: compact ? 10 : 14),
+                            Text(
+                              item.description,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: const Color(0xFF807F7F),
+                                fontSize: compact ? 14 : 16,
+                                height: 1.5,
+                              ),
+                            ),
+                          ],
+                        );
+                      },
                     );
                   },
                 ),
@@ -230,10 +247,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   ),
                   child: const Text(
                     'Skip for Now',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                   ),
                 ),
               ),
@@ -244,10 +258,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                 children: [
                   const Text(
                     'Already have an account? ',
-                    style: TextStyle(
-                      color: Color(0xFF807F7F),
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(color: Color(0xFF807F7F), fontSize: 14),
                   ),
                   GestureDetector(
                     onTap: goToLogin,
@@ -261,7 +272,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     ),
                   ),
                   const Text(
-                    '  •  ',
+                    '  |  ',
                     style: TextStyle(color: Color(0xFF9E9E9E)),
                   ),
                   GestureDetector(

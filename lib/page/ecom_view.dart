@@ -1,9 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:pro1_un/widget/ad_panner_slider.dart';
-import 'package:pro1_un/widget/build_category_item.dart';
-import 'package:pro1_un/widget/card_home_screen.dart';
 import 'package:pro1_un/widget/gride_card_view.dart';
 import 'package:pro1_un/widget/list_view_icons.dart';
 import 'package:pro1_un/widget/search_textfile.dart';

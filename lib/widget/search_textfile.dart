@@ -13,7 +13,7 @@ class SearchTextfile extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.7),
+              color: Colors.grey.withValues(alpha: 0.7),
               spreadRadius: 2,
               blurRadius: 10,
               offset: Offset(0, 3),
