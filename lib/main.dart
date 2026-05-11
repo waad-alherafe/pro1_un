@@ -1,169 +1,118 @@
 import 'package:flutter/material.dart';
 import 'package:pro1_un/page/onboarding_view.dart';
+import 'package:pro1_un/widget/card_home_screen.dart';
+import 'package:pro1_un/page/ecom_view.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-// ألوان التصنيفات كمتغيرات ثابتة
-class CategoryColors {
-  static const Color giftBg = Color(0xFFF6EEFD);
-  static const Color giftIcon = Color(0xFFA677F9);
-
-  static const Color fashionBg = Color(0xFFC7DEFF);
-  static const Color fashionIcon = Color(0xFF338AFF);
-
-  static const Color gadgetBg = Color(0xFFDEE7F1);
-  static const Color gadgetIcon = Color(0xFF2E4771);
-
-  static const Color watchBg = Color(0xFFFFF3E7);
-  static const Color watchIcon = Color(0xFFFFD09D);
-
-  static const Color accessBg = Color(0xFFC9ECE7);
-  static const Color accessIcon = Color(0xFF147768);
-}
-
-// الثيم الأساسي للتطبيق
-final ThemeData appTheme = ThemeData(
-  useMaterial3: true,
-  primaryColor: const Color(0xFF8204FF),
-  scaffoldBackgroundColor: Colors.white,
-
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: const Color(0xFF8204FF),
-    primary: const Color(0xFF8204FF),
-    secondary: const Color(0xFFA677F9),
-    surface: Colors.white,
-  ),
-
-  appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.white,
-    elevation: 0,
-    centerTitle: false,
-    surfaceTintColor: Colors.white,
-    foregroundColor: Colors.black,
-    iconTheme: IconThemeData(color: Colors.black),
-    titleTextStyle: TextStyle(
-      color: Colors.black,
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
-
-  inputDecorationTheme: InputDecorationTheme(
-    filled: true,
-    fillColor: Colors.white,
-    hintStyle: const TextStyle(color: Color(0xFF757575)),
-    prefixIconColor: const Color(0xFF807F7F),
-    suffixIconColor: const Color(0xFF807F7F),
-    contentPadding: const EdgeInsets.symmetric(
-      horizontal: 16,
-      vertical: 16,
-    ),
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(15),
-      borderSide: const BorderSide(color: Color(0xFFE0E0E0)),
-    ),
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(15),
-      borderSide: const BorderSide(color: Color(0xFFE0E0E0)),
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(15),
-      borderSide: const BorderSide(
-        color: Color(0xFF8204FF),
-        width: 1.5,
-      ),
-    ),
-    errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(15),
-      borderSide: const BorderSide(color: Colors.redAccent),
-    ),
-    focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(15),
-      borderSide: const BorderSide(
-        color: Colors.redAccent,
-        width: 1.5,
-      ),
-    ),
-  ),
-
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: const Color(0xFF8204FF),
-      foregroundColor: Colors.white,
-      disabledBackgroundColor: const Color(0xFFC9A5FF),
-      elevation: 0,
-      minimumSize: const Size(double.infinity, 54),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      textStyle: const TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  ),
-
-  outlinedButtonTheme: OutlinedButtonThemeData(
-    style: OutlinedButton.styleFrom(
-      foregroundColor: const Color(0xFF8204FF),
-      side: const BorderSide(color: Color(0xFF8204FF)),
-      minimumSize: const Size(double.infinity, 52),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      textStyle: const TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w600,
-      ),
-    ),
-  ),
-
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(
-      foregroundColor: const Color(0xFF8204FF),
-      textStyle: const TextStyle(
-        fontWeight: FontWeight.w600,
-      ),
-    ),
-  ),
-
-  textTheme: const TextTheme(
-    displayLarge: TextStyle(
-      color: Colors.black,
-      fontSize: 30,
-      fontWeight: FontWeight.bold,
-    ),
-    displayMedium: TextStyle(
-      color: Color(0xFF807F7F),
-      fontWeight: FontWeight.bold,
-    ),
-    bodyLarge: TextStyle(
-      color: Colors.black,
-      fontSize: 16,
-    ),
-    bodyMedium: TextStyle(
-      color: Color(0xFF807F7F),
-      fontSize: 16,
-      height: 1.4,
-    ),
-    bodySmall: TextStyle(
-      color: Color(0xFF9E9E9E),
-    ),
-  ),
-);
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'PocketShop',
-      theme: appTheme,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // TRY THIS: Try running your application with "flutter run". You'll see
+        // the application has a purple toolbar. Then, without quitting the app,
+        // try changing the seedColor in the colorScheme below to Colors.green
+        // and then invoke "hot reload" (save your changes or press "r" if you used
+        // the command line to start the app).
+        //
+        // Notice that the counter didn't reset back to zero; the application
+        // state is not lost during the reload. To reset the state, use hot
+        // restart instead.
+        //
+        // This works for code too, not just values: Most code changes can be
+        // tested with just a hot reload.
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+
+      // Added functionality:
+      // App opens the splash/onboarding screens first.
+      // Your EcomView, products, widgets, and demo data are not removed.
       home: const OnboardingView(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the State. It holds the values
+  // provided by the parent and used by the build method of the State.
+  // Fields in a Widget subclass are always marked "final".
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values.
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      appBar: AppBar(
+        // TRY THIS: Try changing the color here to a specific color and trigger
+        // a hot reload to see the AppBar change color while the other colors
+        // stay the same.
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children.
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text('You have pushed the button this many times:'),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
