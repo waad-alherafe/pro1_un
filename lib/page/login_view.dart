@@ -58,7 +58,7 @@ class _LoginViewState extends State<LoginView> {
   void continueAsGuest() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const EcomView()),
+      MaterialPageRoute(builder: (context) => EcomView()),
     );
   }
 
@@ -113,11 +113,7 @@ class _LoginViewState extends State<LoginView> {
 
                 const Text(
                   'Sign in to continue your PocketShop experience.',
-                  style: TextStyle(
-                    color: textGray,
-                    fontSize: 16,
-                    height: 1.4,
-                  ),
+                  style: TextStyle(color: textGray, fontSize: 16, height: 1.4),
                 ),
 
                 const SizedBox(height: 32),
@@ -247,9 +243,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     child: const Text(
                       'Continue Browsing as Guest',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
@@ -322,9 +316,7 @@ class _AuthTextField extends StatelessWidget {
         hintText: hint,
         prefixIcon: Icon(icon),
         suffixIcon: suffixIcon,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
       ),
     );
   }

@@ -65,7 +65,7 @@ class _RegisterViewState extends State<RegisterView> {
   void continueAsGuest() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const EcomView()),
+      MaterialPageRoute(builder: (context) => EcomView()),
     );
   }
 
@@ -121,11 +121,7 @@ class _RegisterViewState extends State<RegisterView> {
 
                 const Text(
                   'Join PocketShop and continue your shopping journey.',
-                  style: TextStyle(
-                    color: textGray,
-                    fontSize: 16,
-                    height: 1.4,
-                  ),
+                  style: TextStyle(color: textGray, fontSize: 16, height: 1.4),
                 ),
 
                 const SizedBox(height: 32),
@@ -282,9 +278,7 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                     child: const Text(
                       'Continue Browsing as Guest',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
@@ -359,9 +353,7 @@ class _AuthTextField extends StatelessWidget {
         hintText: hint,
         prefixIcon: Icon(icon),
         suffixIcon: suffixIcon,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
       ),
     );
   }

@@ -44,7 +44,7 @@ class _OnboardingViewState extends State<OnboardingView> {
   void goToShop() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const EcomView()),
+      MaterialPageRoute(builder: (context) => EcomView()),
     );
   }
 
@@ -93,7 +93,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               Row(
                 children: [
                   const Icon(
-                    Icons.auto_awesome,
+                    Icons.storefront,
                     color: Color(0xFF8204FF),
                     size: 24,
                   ),
