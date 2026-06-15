@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:pro1_un/widget/ad_panner_slider.dart';
 
@@ -8,7 +9,14 @@ class StackAdpanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        AdPannerSlider(),
+        AdPannerSlider(
+          imageList: [
+            'assets/ai muslimah.jpg',
+            'assets/download (63).jpg',
+            'assets/Rolex Datejust Everose Rolesor – Timeless Elegance.jpg',
+          ],
+          controller: CarouselSliderController(),
+        ),
         Positioned(
           top: 25,
           left: 20,

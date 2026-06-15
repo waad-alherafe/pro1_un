@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
     CardModel(
       image: 'assets/Rolex Datejust Everose Rolesor – Timeless Elegance.jpg',
       price: '555',
-      name: 'fashion',
+      name: 'fashion fashion for women',
     ),
     CardModel(image: 'assets/obroye精华.jpg', price: '3455', name: 'fashion'),
     CardModel(
