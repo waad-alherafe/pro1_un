@@ -26,7 +26,7 @@ class FilterBar2 extends StatelessWidget {
                 shape: StadiumBorder(),
                 // side: BorderSide(color: Color(0xFF8204FF)),
                 elevation: 2,
-                shadowColor: Colors.black.withValues(alpha: 0.3),
+                shadowColor: Colors.black.withOpacity(0.3),
                 backgroundColor: Colors.white,
                 foregroundColor: Color(0xFF8204FF),
                 padding: EdgeInsets.symmetric(horizontal: 18, vertical: 14),

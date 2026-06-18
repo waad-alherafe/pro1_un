@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:pro1_un/page/cart_view.dart';
 import 'package:pro1_un/page/favorites.dart';
@@ -13,7 +14,7 @@ import 'package:pro1_un/widget/search_textfile.dart';
 import 'package:pro1_un/widget/stack_adpanner.dart';
 
 class EcomView extends StatefulWidget {
-  const EcomView({super.key});
+  EcomView({super.key});
 
   @override
   State<EcomView> createState() => _EcomViewState();
@@ -26,7 +27,7 @@ class _EcomViewState extends State<EcomView> {
     HomeScreen(),
     CartView(),
     Favorites(),
-    const ProfileScreen(),
+    Profile(),
   ];
 
   final List<BottomNavigationBarItem> navItems = [
@@ -56,7 +57,7 @@ class _EcomViewState extends State<EcomView> {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.12),
+                color: Colors.black.withOpacity(0.12),
                 blurRadius: 16,
                 spreadRadius: 1,
                 offset: Offset(0, 6),

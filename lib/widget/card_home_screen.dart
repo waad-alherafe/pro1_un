@@ -3,7 +3,7 @@ import 'package:pro1_un/model/card_model.dart';
 import 'package:pro1_un/page/product_details.dart';
 
 class CardHomeScreen extends StatelessWidget {
-  const CardHomeScreen({super.key, required this.cardModel});
+  CardHomeScreen({super.key, required this.cardModel});
 
   final CardModel cardModel;
   @override
@@ -21,7 +21,7 @@ class CardHomeScreen extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.1),
+                color: Colors.black.withOpacity(0.1),
                 spreadRadius: 1,
                 blurRadius: 8,
                 offset: const Offset(0, 4),

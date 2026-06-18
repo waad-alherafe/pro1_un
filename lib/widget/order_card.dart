@@ -54,7 +54,7 @@ class OrderCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.6),
+            color: Colors.grey.withOpacity(0.6),
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),
@@ -112,7 +112,7 @@ class OrderCard extends StatelessWidget {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.6),
+                          color: Colors.grey.withOpacity(0.6),
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: const Offset(0, 3),
@@ -142,7 +142,7 @@ class OrderCard extends StatelessWidget {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.6),
+                          color: Colors.grey.withOpacity(0.6),
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: const Offset(0, 3),
@@ -176,7 +176,7 @@ class OrderCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.6),
+                          color: Colors.grey.withOpacity(0.6),
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: const Offset(0, 3),
@@ -208,7 +208,7 @@ class OrderCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.6),
+                          color: Colors.grey.withOpacity(0.6),
                           spreadRadius: 1,
                           blurRadius: 5,
                           offset: const Offset(0, 3),
@@ -240,7 +240,7 @@ class OrderCard extends StatelessWidget {
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withValues(alpha: 0.6),
+                      color: Colors.grey.withOpacity(0.6),
                       spreadRadius: 1,
                       blurRadius: 5,
                       offset: const Offset(0, 3),

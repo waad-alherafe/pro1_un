@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FilterBar extends StatefulWidget {
-  const FilterBar({super.key});
+  FilterBar({super.key});
 
   @override
   State<FilterBar> createState() => _FilterBarState();

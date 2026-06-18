@@ -3,7 +3,7 @@ import 'package:pro1_un/model/card_model.dart';
 import 'package:pro1_un/widget/card_home_screen.dart';
 
 class GrideCardView extends StatelessWidget {
-  const GrideCardView({super.key, required this.cardsModel});
+  GrideCardView({super.key, required this.cardsModel});
   // final List<CardModel> cardsModel = [
   //   CardModel(
   //     image: 'assets/لوك نهاري سيج_أوليف بسيط.jpg',

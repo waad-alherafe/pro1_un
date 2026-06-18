@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class AdPannerSlider extends StatelessWidget {
-  const AdPannerSlider({
+  AdPannerSlider({
     super.key,
     this.height = 150,
     required this.imageList,
