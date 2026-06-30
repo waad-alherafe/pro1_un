@@ -109,12 +109,7 @@ class Profile extends StatelessWidget {
                 ListOption(
                   icon: Icons.dark_mode_outlined,
                   label: 'Darkmode',
-                  trailing: Switch(
-                    value: false, // متغيّر حال السويتش
-                    onChanged: (value) {
-                      // تغيير الحالة هنا
-                    },
-                  ),
+                  trailing: Switch(value: false, onChanged: (value) {}),
                 ),
                 const Divider(
                   height: 20,

@@ -5,34 +5,56 @@ import 'package:pro1_un/widget/gride_card_view.dart';
 import 'package:pro1_un/widget/list_view_icons.dart';
 import 'package:pro1_un/widget/search_textfile.dart';
 import 'package:pro1_un/widget/stack_adpanner.dart';
+import 'package:pro1_un/widget/why_choose_us.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
-  final List<CardModel> cardsModel = [
-    CardModel(
-      image: 'assets/لوك نهاري سيج_أوليف بسيط.jpg',
-      price: '2900',
-      name: 'fashion',
+  final List<ProductItem> cardsModel = [
+    ProductItem(
+      id: 1,
+      name: 'ساعة',
+      originalPrice: 99,
+      image: 'assets/obroye精华.jpg',
+      rating: 3.4,
+      reviewsCount: 2,
+      stockLeft: 0,
     ),
-    CardModel(
+    ProductItem(
+      id: 2,
+      name: 'بنطلون',
+      originalPrice: 34,
+      image: 'assets/Modern Headphones Product Poster Design.jpg',
+      rating: 4.3,
+      reviewsCount: 44,
+      stockLeft: 3,
+    ),
+    ProductItem(
+      id: 3,
+      name: 'سماعات',
+      originalPrice: 54,
       image: 'assets/Rolex Datejust Everose Rolesor – Timeless Elegance.jpg',
-      price: '555',
-      name: 'fashion fashion for women',
+      rating: 7.4,
+      reviewsCount: 4,
+      stockLeft: 5,
     ),
-    CardModel(image: 'assets/obroye精华.jpg', price: '3455', name: 'fashion'),
-    CardModel(
-      image:
-          'assets/Men’s Summer Business Casual Outfit _ Champagne Shirt & Off-White Pants.jpg',
-      price: '3455',
-      name: 'fashion',
+    ProductItem(
+      id: 4,
+      name: 'هودي',
+      originalPrice: 67,
+      image: 'assets/download (74).jpg',
+      rating: 2.5,
+      reviewsCount: 9,
+      stockLeft: 2,
     ),
-    CardModel(
-      image:
-          'assets/Luxury Maroon Hoodie - TIN BROTHER Gold Logo Embroidery - Oversized Fit.jpg',
-      price: '3455',
-      name: 'fashion',
+    ProductItem(
+      id: 5,
+      name: 'اكسسوارات',
+      originalPrice: 98,
+      image: 'assets/download (77).jpg',
+      rating: 6.5,
+      reviewsCount: 10,
+      stockLeft: 8,
     ),
-    CardModel(image: 'assets/ai muslimah.jpg', price: '3455', name: 'fashion'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -105,9 +127,21 @@ class HomeScreen extends StatelessWidget {
             ),
 
             SizedBox(height: 10),
+
             ListViewIcons(),
             StackAdpanner(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
+            WhyChooseUs(),
+            const SizedBox(height: 40),
+            Divider(
+              thickness: 1,
+              endIndent: 50,
+              indent: 50,
+              height: 1,
+              color: Color(0xFF8204FF),
+            ),
+            const SizedBox(height: 40),
+
             Row(
               children: [
                 Padding(
@@ -136,7 +170,92 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GrideCardView(cardsModel: cardsModel),
+              child: GrideCardView(
+                displayedProducts: cardsModel.take(4).toList(),
+              ),
+            ),
+            const SizedBox(height: 60),
+            const Divider(
+              thickness: 1,
+              endIndent: 50,
+              indent: 50,
+              height: 1,
+              color: Color(0xFF8204FF),
+            ),
+            const SizedBox(height: 60),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: Text(
+                    'best seller',
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 131, 130, 130),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 150),
+                GestureDetector(
+                  onTap: () {},
+                  child: const Text(
+                    "See All",
+                    style: TextStyle(
+                      color: Color(0xFF8204FF),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GrideCardView(
+                displayedProducts: cardsModel.take(4).toList(),
+              ),
+            ),
+            const SizedBox(height: 60),
+            const Divider(
+              thickness: 1,
+              endIndent: 50,
+              indent: 50,
+              height: 1,
+              color: Color(0xFF8204FF),
+            ),
+            const SizedBox(height: 60),
+
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: Text(
+                    'New Products',
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 131, 130, 130),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 150),
+                GestureDetector(
+                  onTap: () {},
+                  child: const Text(
+                    "See All",
+                    style: TextStyle(
+                      color: Color(0xFF8204FF),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GrideCardView(
+                displayedProducts: cardsModel.take(4).toList(),
+              ),
             ),
           ],
         ),

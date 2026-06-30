@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:pro1_un/model/card_model.dart';
+import 'package:pro1_un/page/categories_view.dart';
 import 'package:pro1_un/widget/ad_panner_slider.dart';
 import 'package:pro1_un/widget/gride_card_view.dart';
 
@@ -12,26 +13,51 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  final List<CardModel> proudectCardModel = [
-    CardModel(
-      image: 'assets/download (74).jpg',
-      price: '33.33',
-      name: 'design',
+  final List<ProductItem> proudectCardModel = [
+    ProductItem(
+      id: 1,
+      name: 'ساعة',
+      originalPrice: 99,
+      image: 'assets/obroye精华.jpg',
+      rating: 3.4,
+      reviewsCount: 2,
+      stockLeft: 0,
     ),
-    CardModel(
-      image: 'assets/download (74).jpg',
-      price: '33.33',
-      name: 'design',
+    ProductItem(
+      id: 2,
+      name: 'بنطلون',
+      originalPrice: 34,
+      image: 'assets/Modern Headphones Product Poster Design.jpg',
+      rating: 4.3,
+      reviewsCount: 44,
+      stockLeft: 3,
     ),
-    CardModel(
-      image: 'assets/download (74).jpg',
-      price: '33.33',
-      name: 'design',
+    ProductItem(
+      id: 3,
+      name: 'سماعات',
+      originalPrice: 54,
+      image: 'assets/Rolex Datejust Everose Rolesor – Timeless Elegance.jpg',
+      rating: 7.4,
+      reviewsCount: 4,
+      stockLeft: 5,
     ),
-    CardModel(
+    ProductItem(
+      id: 4,
+      name: 'هودي',
+      originalPrice: 67,
       image: 'assets/download (74).jpg',
-      price: '33.33',
-      name: 'design',
+      rating: 2.5,
+      reviewsCount: 9,
+      stockLeft: 2,
+    ),
+    ProductItem(
+      id: 5,
+      name: 'اكسسوارات',
+      originalPrice: 98,
+      image: 'assets/download (77).jpg',
+      rating: 6.5,
+      reviewsCount: 10,
+      stockLeft: 8,
     ),
   ];
   final TextEditingController _reviewController = TextEditingController();
@@ -323,9 +349,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF8204FF).withOpacity(
-                            0.05,
-                          ), // لون خلفية خفيف متناسق مع هويتك البصرية
+                          color: const Color(0xFF8204FF).withOpacity(0.05),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(
                             color: const Color(0xFF8204FF).withOpacity(0.2),
@@ -343,15 +367,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                             const SizedBox(height: 8),
 
-                            // أزرار النجوم التفاعلية ليختار المستخدم تقييمه
                             Row(
                               children: List.generate(5, (index) {
                                 int starValue = index + 1;
                                 return GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      _userSelectedRating =
-                                          starValue; // تحديث عدد النجوم المحددة
+                                      _userSelectedRating = starValue;
                                     });
                                   },
                                   child: Padding(
@@ -359,7 +381,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     child: Icon(
                                       Icons.star,
                                       size: 28,
-                                      // إذا كان رقم النجمة أقل من أو يساوي خيار المستخدم نلونها بالأصفر، وإلا تظل رمادية
+
                                       color: starValue <= _userSelectedRating
                                           ? Colors.amber
                                           : Colors.grey.shade400,
@@ -370,7 +392,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                             const SizedBox(height: 12),
 
-                            // حقل إدخال النص لكتابة المراجعة
                             TextField(
                               controller: _reviewController,
                               maxLines: 2,
@@ -400,13 +421,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                             const SizedBox(height: 10),
 
-                            // زر إرسال التقييم للباك إيند
                             Align(
                               alignment: Alignment.centerLeft,
                               child: ElevatedButton(
                                 onPressed: () {
                                   if (_userSelectedRating == 0) {
-                                    // تنبيه المستخدم إذا لم يحدد أي نجمة
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
                                         backgroundColor: Color(0xFF8204FF),
@@ -418,7 +437,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     return;
                                   }
 
-                                  // هنا مستقبلاً ستضع دالة إرسال البيانات للباك إيند (API Call)
+                                  //هون بعدين بدي اربط
                                   print(
                                     'النجوم المختارة: $_userSelectedRating',
                                   );
@@ -426,7 +445,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     'التعليق المكتوب: ${_reviewController.text}',
                                   );
 
-                                  // رسالة نجاح وتصفير الحقول بعد الإرسال
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
                                       backgroundColor: Color(0xFF8204FF),
@@ -462,13 +480,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                       const SizedBox(height: 20),
 
-                      // 3. عرض التعليقات القادمة من الباك إيند (قائمة المراجعات الحالية)
-                      // هنا نقوم بعمل قائمة بالتعليقات السابقة
                       ListView.builder(
-                        shrinkWrap: true, // مهم جداً لأننا داخل سكرولر عمودي
-                        physics:
-                            const NeverScrollableScrollPhysics(), // منع التضارب مع السكرول الأساسي
-                        itemCount: 2, // عدد التعليقات القادمة من الباك إيند
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: 2,
                         itemBuilder: (context, index) {
                           return Container(
                             margin: const EdgeInsets.only(bottom: 12),
@@ -499,9 +514,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                           Icons.star,
                                           color: starIndex < rating
                                               ? Colors.amber
-                                              : Colors
-                                                    .grey
-                                                    .shade300, // مثال لتقييم 4 نجوم
+                                              : Colors.grey.shade300,
                                           size: 14,
                                         );
                                       }),
@@ -531,7 +544,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      GrideCardView(cardsModel: proudectCardModel),
+                      GrideCardView(displayedProducts: proudectCardModel),
                       const SizedBox(height: 120),
                     ],
                   ),
@@ -642,7 +655,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                               (availableQuantity > 0 &&
                                   quantity <= availableQuantity)
                               ? () {
-                                  // هنا تضع أكشن الإضافة إلى السلة الفعلي
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(

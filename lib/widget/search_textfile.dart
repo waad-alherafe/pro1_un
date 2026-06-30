@@ -26,7 +26,7 @@ class SearchTextfile extends StatelessWidget {
             hintText: 'search',
             hintStyle: TextStyle(color: Colors.grey[600]),
             prefixIcon: Icon(Icons.search, color: Color(0xFF8204FF)),
-            suffixIcon: Icon(Icons.tune, color: Colors.grey),
+            //suffixIcon: Icon(Icons.tune, color: Colors.grey),
             border: InputBorder.none,
             contentPadding: EdgeInsets.symmetric(vertical: 15),
           ),
